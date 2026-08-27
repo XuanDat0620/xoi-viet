@@ -1,0 +1,291 @@
+:root {
+    --xoi-primary: #A3242A;       /* Đỏ son truyền thống - màu chủ đạo */
+    --xoi-primary-dark: #7A1B20;  /* Đỏ đậm hơn khi hover */
+    --xoi-primary-light: #FCEBEB; /* Đỏ nhạt cho nền icon/badge */
+    --xoi-accent: #2F6F4E;        /* Xanh lá - điểm nhấn phụ */
+    --xoi-dark: #2B1810;          /* Nâu đen - dùng cho footer & sidebar admin */
+    --xoi-dark-2: #3D241A;        /* Nâu đen nhạt hơn 1 chút, cho gradient */
+    --xoi-cream: #FFF8F0;         /* Nền tổng thể - kem ấm */
+    --xoi-text-on-dark: #F3E6DA;  /* Chữ sáng dùng trên nền tối - đủ tương phản */
+    --xoi-text-on-dark-muted: #D8C4B3; /* Chữ phụ trên nền tối, vẫn đủ sáng để đọc rõ */
+}
+
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background-color: var(--xoi-cream);
+    color: #2b2018;
+}
+
+a { text-decoration: none; }
+
+/* ===== GHI ĐÈ MÀU BOOTSTRAP: chuyển toàn bộ vàng/cam mặc định sang đỏ son ===== */
+.btn-warning {
+    background-color: var(--xoi-primary);
+    border-color: var(--xoi-primary);
+    color: #fff;
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
+    background-color: var(--xoi-primary-dark) !important;
+    border-color: var(--xoi-primary-dark) !important;
+    color: #fff !important;
+}
+.btn-outline-warning {
+    color: var(--xoi-primary);
+    border-color: var(--xoi-primary);
+}
+.btn-outline-warning:hover {
+    background-color: var(--xoi-primary);
+    border-color: var(--xoi-primary);
+    color: #fff;
+}
+.text-warning { color: var(--xoi-primary) !important; }
+.bg-warning { background-color: var(--xoi-primary) !important; }
+.border-warning { border-color: var(--xoi-primary) !important; }
+
+/* ===== HEADER ===== */
+.site-header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+.category-nav .nav-link {
+    color: var(--xoi-dark);
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 20px;
+    transition: 0.2s;
+}
+.category-nav .nav-link:hover,
+.category-nav .nav-link.active {
+    background: var(--xoi-primary);
+    color: #fff;
+}
+
+/* ===== HERO BANNER ===== */
+.hero-banner {
+    background: linear-gradient(120deg, var(--xoi-primary), var(--xoi-primary-dark));
+    border-radius: 24px;
+    color: #fff;
+    padding: 60px 40px;
+    overflow: hidden;
+    position: relative;
+}
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+}
+.hero-shape-1 { width: 220px; height: 220px; top: -80px; right: -60px; }
+.hero-shape-2 { width: 140px; height: 140px; bottom: -50px; right: 120px; }
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.hero-emoji-wrap {
+    width: 260px; height: 260px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+    animation: float 3s ease-in-out infinite;
+}
+.hero-emoji { font-size: 130px; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+}
+.avatar-dot {
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    width: 34px; height: 34px;
+    background: #fff;
+    border-radius: 50%;
+    margin-left: -10px;
+    border: 2px solid var(--xoi-primary);
+    font-size: 16px;
+}
+.avatar-dot:first-child { margin-left: 0; }
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--xoi-dark);
+}
+
+/* ===== VÌ SAO CHỌN CHÚNG TÔI ===== */
+.why-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 16px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.25s;
+}
+.why-item:hover { transform: translateY(-6px); box-shadow: 0 10px 24px rgba(0,0,0,0.1); }
+.why-icon {
+    font-size: 36px;
+    width: 70px; height: 70px;
+    background: var(--xoi-primary-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+    height: 100%;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+.product-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+.badge-discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--xoi-accent);
+    color: #fff;
+    font-weight: 600;
+}
+.price-new {
+    color: var(--xoi-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.price-old {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+
+/* ===== DANH MỤC ===== */
+.category-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: 0.25s;
+}
+.category-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.category-icon {
+    font-size: 40px;
+    width: 64px; height: 64px;
+    background: var(--xoi-primary-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+}
+
+/* ===== ĐÁNH GIÁ KHÁCH HÀNG ===== */
+.testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--xoi-primary);
+}
+
+/* ===== CTA CUỐI TRANG ===== */
+.cta-banner {
+    background: linear-gradient(120deg, var(--xoi-dark), var(--xoi-dark-2));
+    color: #fff;
+    border-radius: 24px;
+    padding: 50px 20px;
+}
+
+/* ===== SECTION TITLE ===== */
+.section-title {
+    font-weight: 800;
+    color: var(--xoi-dark);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--xoi-primary);
+    border-radius: 4px;
+    margin-top: 8px;
+}
+.section-title.mx-auto::after { margin-left: auto; margin-right: auto; }
+
+/* ===== FOOTER (đã sửa: nền tối hơn + chữ SÁNG rõ ràng, đủ tương phản) ===== */
+.site-footer {
+    background: var(--xoi-dark);
+}
+.site-footer h5, .site-footer h6 {
+    color: #fff;
+}
+.site-footer p, .site-footer li {
+    color: var(--xoi-text-on-dark-muted);
+}
+.site-footer a {
+    color: var(--xoi-text-on-dark-muted);
+}
+.site-footer a:hover { color: #fff; }
+.site-footer hr { border-color: rgba(255,255,255,0.15); }
+
+/* ===== STEP STATUS (theo dõi đơn hàng) ===== */
+.status-step {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+.status-step .circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 8px;
+    font-weight: 700;
+}
+.status-step.active .circle { background: var(--xoi-primary); }
+.status-step.done .circle { background: var(--xoi-accent); }
+
+/* ===== ADMIN ===== */
+.admin-sidebar {
+    background: var(--xoi-dark);
+    min-height: 100vh;
+}
+.admin-sidebar a {
+    color: var(--xoi-text-on-dark-muted);
+    display: block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 2px 10px;
+}
+.admin-sidebar a:hover,
+.admin-sidebar a.active {
+    background: var(--xoi-primary);
+    color: #fff;
+}
+.stat-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
