@@ -18,6 +18,7 @@ COPY nginx.conf /etc/nginx/sites-available/default
 
 EXPOSE 80
 
-CMD php artisan storage:link --force && \
-    php artisan config:clear && \
-    php-fpm -D && nginx -g "daemon off;"
+CMD php artisan config:clear && \
+    php artisan storage:link --force && \
+    service php8.2-fpm start && \
+    nginx -g "daemon off;"
