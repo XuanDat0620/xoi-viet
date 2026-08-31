@@ -20,5 +20,4 @@ EXPOSE 80
 
 CMD php artisan storage:link --force && \
     php artisan config:clear && \
-    php artisan migrate --force && \
-    service nginx start && php-fpm
+    php-fpm -D && nginx -g "daemon off;"
