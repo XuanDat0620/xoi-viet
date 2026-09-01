@@ -16,8 +16,12 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 COPY nginx.conf /etc/nginx/sites-available/default
 
-RUN chmod +x /var/www/start.sh
+# Ép PHP-FPM lắng nghe cổng 9000
+RUN sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /usr/local/etc/php-fpm.d/www.conf
 
 EXPOSE 80
 
-CMD ["/var/www/start.sh"]
+CMD php artisan config:clear && \
+    php artisan storage:link --force && \
+    php-fpm -D && \
+    nginx -g "daemon off;"
