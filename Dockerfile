@@ -20,5 +20,5 @@ EXPOSE 80
 
 CMD php artisan config:clear && \
     php artisan storage:link --force && \
-    service php8.2-fpm start && \
+    php-fpm -D && \
     nginx -g "daemon off;"
