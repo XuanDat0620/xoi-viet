@@ -16,9 +16,8 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 COPY nginx.conf /etc/nginx/sites-available/default
 
+RUN chmod +x /var/www/start.sh
+
 EXPOSE 80
 
-CMD php artisan config:clear && \
-    php artisan storage:link --force && \
-    php-fpm -D && \
-    nginx -g "daemon off;"
+CMD ["/var/www/start.sh"]
