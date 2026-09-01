@@ -16,8 +16,11 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 COPY nginx.conf /etc/nginx/sites-available/default
 
-# Ép PHP-FPM lắng nghe cổng 9000
-RUN sed -i 's/listen = .*/listen = 127.0.0.1:9000/' /usr/local/etc/php-fpm.d/www.conf
+# Chuyển PHP-FPM sang chạy qua UNIX socket
+RUN sed -i 's/listen = .*/listen = \/var\/run\/php-fpm.sock/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.owner = .*/listen.owner = www-data/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.group = .*/listen.group = www-data/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/;listen.mode = .*/listen.mode = 0660/' /usr/local/etc/php-fpm.d/www.conf
 
 EXPOSE 80
 
